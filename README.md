@@ -1,11 +1,14 @@
 # Histórico de ações
 Plotagem de gráfico com o histórico de uma ação baseado em
   - `CÓDIGO` da ação
-  - `PERÍODO` 
+  - `PERÍODO` selecionado
   
-Dashboard dinâmico
+Dashboard dinâmico com inputs de usuário.
 
 ## Features
+  - Busca por ação
+  - Busca por período
+  - ~~Comparação com o Ibovespa
 
 ## Pré-requisitos
 - `requests==2.26.0`              
