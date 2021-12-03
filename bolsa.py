@@ -7,6 +7,7 @@ from dash.dependencies import Input, Output
 
 import plotly.express as px
 import pandas as pd
+    
 import requests
 import json
 
@@ -21,8 +22,8 @@ app.layout = html.Div(children=[    #cria o layout da aplicação
 
     dcc.DatePickerRange(    #campo tipo calendário para escolha da data
             display_format='DD/MM/YYYY',
-            start_date_placeholder_text='DD/MM/AAAA',
-            end_date=date.today(),
+            start_date_placeholder_text= 'DD/MM/AAAA',
+            end_date_placeholder_text = 'DD/MM/AAAA',
             id='my-date-picker-range'
 ),
     dcc.Graph(
@@ -69,7 +70,8 @@ def update_output(start_date, end_date): #a função que envolve o decorador de 
     fig = grafico_acao(start_date_string, end_date_string) #chama função para chamar API e gerar o gráfico
     return fig #plotagem do gráfico
 
-app.run_server() #roda a aplicação
+if __name__ == '__main__':
+    app.run_server() #roda a aplicação
 
 
 
