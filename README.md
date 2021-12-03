@@ -8,7 +8,7 @@ Dashboard dinâmico com inputs de usuário.
 ## Features
   - Busca por ação
   - Busca por período
-  - ~~Comparação com o Ibovespa
+  - ~~Comparação com o Ibovespa~~
 
 ## Pré-requisitos
 - `requests==2.26.0`              
