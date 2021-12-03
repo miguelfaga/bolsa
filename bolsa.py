@@ -32,10 +32,12 @@ app.layout = html.Div(children=[    #cria o layout da aplicação
 
 @app.callback(
     Output('output-container-date-picker-range', 'figure'), #a tag id relaciona a figura com o dcc (dash core component) Graph definido acima
+    Input('code-input', 'value'),
     Input('my-date-picker-range', 'start_date'),
     Input('my-date-picker-range', 'end_date')) #cada elemento de Input e Output identificado pela tag id tem um valor armazenado nas variáveis indicadas no callback
 
-def update_output(start_date, end_date): #a função que envolve o decorador de callback é acionada automaticamente caso o valor do input se altere
+def update_output(code, start_date, end_date): #a função que envolve o decorador de callback é acionada automaticamente caso o valor do input se altere
+    '''Os parâmetros estão na mesma ordem da declaração de variáveis no decorador'''
 
     def grafico_acao(data_inicio, data_fim, acao="ETER3"):
     
@@ -67,7 +69,8 @@ def update_output(start_date, end_date): #a função que envolve o decorador de 
     start_date_string = start_date_object.strftime('%Y%m%d') #transforma o objeto data em string
     end_date_object = date.fromisoformat(end_date)
     end_date_string = end_date_object.strftime('%Y%m%d')
-    fig = grafico_acao(start_date_string, end_date_string) #chama função para chamar API e gerar o gráfico
+    code = code.upper()
+    fig = grafico_acao(start_date_string, end_date_string, acao=code) #chama função para chamar API e gerar o gráfico
     return fig #plotagem do gráfico
 
 if __name__ == '__main__':
